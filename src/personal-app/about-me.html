@@ -1,0 +1,141 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="my-icons.html">
+<link rel="import" href="linked-in.html">
+<link rel="import" href="github.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="about-me">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+        padding: 10px;
+        --iron-icon-width: 40px;
+        --iron-icon-height: 40px;
+      }
+      :root {
+        border: 3px solid var(--custom-orange);
+      }
+      hr {
+        border: 1px solid var(--custom-orange);
+      }
+      .img-circle {
+        margin-top: 18px;
+        border-radius: 50%;
+        border: 3px solid var(--custom-orange);
+      }
+      .flex-horizontal {
+        @apply(--layout-horizontal);
+      }
+      .flexchild {
+        @apply(--layout-flex);
+      }
+      .description {
+        font-size: 18px;
+      }
+      .contact{
+        margin-top: 20px;
+      }
+      .icons:hover .mail,
+      .icons:hover .github,
+      .icons:hover .linked-in{
+        fill: var(--custom-orange);
+        color: var(--custom-orange);
+      }
+
+      a .mail,
+      a .github,
+      a .linked-in {
+        color: black;
+        transition: 200ms;
+        transition-timing-function: ease-in-out;
+        -webkit-transition: 200ms;
+        -webkit-transition-timing-function: ease-in-out;
+      }
+    </style>
+
+    <div class="card">
+      <h1 style="padding-left: 20px;">About me</h1>
+
+      <div class="container flex-horizontal">
+        <div style="margin-right: 10px; border-right: 3px solid var(--custom-orange);">
+          <img class="img-circle" src="../../images/profile2.jpg" width="160" height="160">
+
+          <div class="contact">
+            <a href="https://github.com/Gradecak/" target="_blank" class="icons">
+              <iron-icon class="github" icon="gh:github"> </iron-icon>
+              <span class="github">Github</span>
+            </a>
+          </div>
+
+          <div class="contact">
+            <a class="icons" href="https://ie.linkedin.com/in/marijan-gradecak-882b4bb2" target="_blank">
+              <iron-icon class="linked-in" " icon="li:linked-in"> </iron-icon>
+              <span class="linked-in">LinkedIn</span>
+            </a>
+          </div>
+
+          <div class="contact">
+            <a class="icons" href="mailto:gradecam@tcd.ie" target="_blank">
+              <iron-icon class="mail" icon="icons:mail"> </iron-icon>
+              <span class="mail">Mail</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <hr>
+          <div class="description">
+            <p>
+              I'm a 4th year Computer Science student in Trinity College Dublin with a love of all things engineering and an interest in the area of computer graphics.
+            </p>
+            <p>
+              Through personal projects and college work I've picked up a variety of frameworks and languages but work mostly with Python and Rails. However, I'm always looking to expand
+              <a href="/contact-me">my skillset! </a>
+            </p>
+            <p>
+              If you have a project idea that needs building or are looking for contributors for an existing project, feel free to contact me by filling out the form below or through any other means listed on the left. A CV detailing my past  experience is available on request
+            </p>
+          </div>
+          <hr>
+          <div class="skills">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'about-me',
+      behaviors: [
+      Polymer.NeonAnimationRunnerBehavior
+      ],
+      properties: {
+        animationConfig: {
+          value: function() {
+            return {
+          // provided by neon-animation/animations/scale-down-animation.html
+          name: 'scale-down-animation',
+          node: this
+        }
+      }
+    }
+  },
+  listeners: {
+    // this event is fired when the animation finishes
+    'neon-animation-finish': '_onNeonAnimationFinish'
+  },
+  animate: function() {
+    // run scale-down-animation
+    this.playAnimation();
+  },
+  _onNeonAnimationFinish: function() {
+    console.log('animation done!');
+  }
+});
+</script>
+</dom-module>

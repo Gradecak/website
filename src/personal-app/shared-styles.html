@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!-- shared styles for all views -->
+<dom-module id="shared-styles">
+  <template>
+    <style>
+      :root{
+        --custom-orange: #F3752B;
+        --custom-brown: #1F1300;
+        --custom-blue: #0F7173;
+        --custom-gray: #54494B;
+        --custom-white: #FCFCFC;
+      };
+      a{
+        text-decoration: none;
+        color: var(--custom-orange);
+      }
+      a:hover{
+        color: var(--custom-blue);
+      }
+      .card{
+        background-color: var(--custom-white);
+        /*background-image: url(../../images/background.png);*/
+        border-radius: 5px;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.14), 0 4px 10px 0 rgba(0, 0, 0, 0.12), 0 6px 2px -4px rgba(0, 0, 0, 0.2);
+        height: 80vh;
+        padding: 16px;
+        margin-top: 16px;
+        overflow: auto;
+      }
+    </style>
+  </template>
+</dom-module>
