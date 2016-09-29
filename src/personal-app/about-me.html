@@ -8,7 +8,7 @@
 
 <dom-module id="about-me">
   <template>
-    <style include="shared-styles">
+    <style include="shared-styles iron-flex">
       :host {
         display: block;
         padding: 10px;
@@ -26,16 +26,23 @@
         border-radius: 50%;
         border: 3px solid var(--custom-orange);
       }
-      .flex-horizontal {
+      .flex-container{
         @apply(--layout-horizontal);
       }
-      .flexchild {
-        @apply(--layout-flex);
+      .profile-image {
+        /*background-color: var(--custom-blue);*/
+        margin-right: 30px;
+        @apply(--layout-self-center);
+      }
+      .social-container {
+        @apply(--layout-vertical);
+        @apply(--layout-flex-none);
+        @apply(--layout-start);
       }
       .description {
         font-size: 18px;
       }
-      .contact{
+      .top-padded{
         margin-top: 20px;
       }
       .icons:hover .mail,
@@ -55,55 +62,55 @@
         -webkit-transition-timing-function: ease-in-out;
       }
     </style>
-
     <div class="card">
-      <h1 style="padding-left: 20px;">About me</h1>
-
-      <div class="container flex-horizontal">
-        <div style="margin-right: 10px; border-right: 3px solid var(--custom-orange);">
-          <img class="img-circle" src="../../images/profile2.jpg" width="160" height="160">
-
-          <div class="contact">
-            <a href="https://github.com/Gradecak/" target="_blank" class="icons">
-              <iron-icon class="github" icon="gh:github"> </iron-icon>
-              <span class="github">Github</span>
-            </a>
+      <div class="bio">
+        <div class="flex-container">
+          <!-- Profile Image -->
+          <div class="profile-image">
+            <img class="img-circle" src="../../images/profile2.jpg" width="160" height="160">
           </div>
-
-          <div class="contact">
-            <a class="icons" href="https://ie.linkedin.com/in/marijan-gradecak-882b4bb2" target="_blank">
-              <iron-icon class="linked-in" " icon="li:linked-in"> </iron-icon>
-              <span class="linked-in">LinkedIn</span>
-            </a>
-          </div>
-
-          <div class="contact">
-            <a class="icons" href="mailto:gradecam@tcd.ie" target="_blank">
-              <iron-icon class="mail" icon="icons:mail"> </iron-icon>
-              <span class="mail">Mail</span>
-            </a>
+          <!-- Profile Bio -->
+          <div>
+            <hr>
+            <div class="description">
+              <p>
+                I'm a 4th year Computer Science student in Trinity College Dublin with a love of all things engineering and an interest in the area of distributed systems.
+              </p>
+              <p>
+                Through personal projects and college work I've picked up a variety of frameworks and languages but work mostly with Python and Rails. However, I'm always looking to expand
+                <a href="/contact-me">my skillset! </a>
+              </p>
+              <p>
+                If you have a project idea that needs building or are looking for contributors for an existing project, feel free to contact me through any of the means listed on the left. A CV detailing my past experience is available on request.
+              </p>
+            </div>
+            <hr>
           </div>
         </div>
 
-        <div>
-          <hr>
-          <div class="description">
-            <p>
-              I'm a 4th year Computer Science student in Trinity College Dublin with a love of all things engineering and an interest in the area of computer graphics.
-            </p>
-            <p>
-              Through personal projects and college work I've picked up a variety of frameworks and languages but work mostly with Python and Rails. However, I'm always looking to expand
-              <a href="/contact-me">my skillset! </a>
-            </p>
-            <p>
-              If you have a project idea that needs building or are looking for contributors for an existing project, feel free to contact me by filling out the form below or through any other means listed on the left. A CV detailing my past  experience is available on request
-            </p>
-          </div>
-          <hr>
-          <div class="skills">
+        <!-- Social Media Icons -->
+        <div class="social-container">
+            <div class="top-padded">
+              <a href="https://github.com/Gradecak/" target="_blank" class="icons">
+                <iron-icon class="github" icon="gh:github"> </iron-icon>
+                <span class="github">Github</span>
+              </a>
+            </div>
 
+            <div class="top-padded">
+              <a class="icons" href="https://ie.linkedin.com/in/marijan-gradecak-882b4bb2" target="_blank">
+                <iron-icon class="linked-in" " icon="li:linked-in"> </iron-icon>
+                <span class="linked-in">LinkedIn</span>
+              </a>
+            </div>
+
+            <div class="top-padded">
+              <a class="icons" href="mailto:gradecam@tcd.ie" target="_blank">
+                <iron-icon class="mail" icon="icons:mail"> </iron-icon>
+                <span class="mail">gradecam@tcd.ie</span>
+              </a>
+            </div>
           </div>
-        </div>
       </div>
     </div>
   </template>

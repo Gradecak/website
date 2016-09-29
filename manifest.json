@@ -2,7 +2,7 @@
   "name": "personal",
   "short_name": "personal",
   "description": "A personal website",
-  "start_url": "/about-me",
+  "start_url": "/",
   "display": "standalone",
   "icons": [
     {
