@@ -12,8 +12,6 @@
       :host {
         display: block;
         padding: 10px;
-        --iron-icon-width: 40px;
-        --iron-icon-height: 40px;
       }
       :root {
         border: 3px solid var(--custom-orange);
@@ -26,24 +24,34 @@
         border-radius: 50%;
         border: 3px solid var(--custom-orange);
       }
-      .flex-container{
-        @apply(--layout-horizontal);
+      .card {
+        /*@apply(--layout-vertical);*/
+        @apply(--layout-flex);
+        @apply(--layout-justified);
       }
-      .profile-image {
-        /*background-color: var(--custom-blue);*/
-        margin-right: 30px;
+      .about-me-container{
+        @apply(--layout-horizontal);
+        @apply(--layout-wrap);
+      }
+      .description{
+        font-size: 18px;
+        width: 80%;
+        margin: 0 auto;
         @apply(--layout-self-center);
+      }
+      .profile-image{
+        @apply(--layout-center-justify);
+        margin: auto;
       }
       .social-container {
         @apply(--layout-vertical);
-        @apply(--layout-flex-none);
+        /*@apply(--layout-flex);*/
         @apply(--layout-start);
+        /*@apply(--layout-self-center);*/
+        margin: auto;
       }
-      .description {
-        font-size: 18px;
-      }
-      .top-padded{
-        margin-top: 20px;
+      .social-icons{
+        padding: 10px;
       }
       .icons:hover .mail,
       .icons:hover .github,
@@ -52,97 +60,83 @@
         color: var(--custom-orange);
       }
 
-      a .mail,
-      a .github,
-      a .linked-in {
-        color: black;
-        transition: 200ms;
-        transition-timing-function: ease-in-out;
-        -webkit-transition: 200ms;
-        -webkit-transition-timing-function: ease-in-out;
+      .linked-in{
+        --iron-icon-width: 46px;
+        --iron-icon-height: 46px;
       }
-    </style>
-    <div class="card">
-      <div class="bio">
-        <div class="flex-container">
-          <!-- Profile Image -->
-          <div class="profile-image">
-            <img class="img-circle" src="../../images/profile2.jpg" width="160" height="160">
-          </div>
-          <!-- Profile Bio -->
-          <div>
-            <hr>
-            <div class="description">
-              <p>
-                I'm a 4th year Computer Science student in Trinity College Dublin with a love of all things engineering and an interest in the area of distributed systems.
-              </p>
-              <p>
-                Through personal projects and college work I've picked up a variety of frameworks and languages but work mostly with Python and Rails. However, I'm always looking to expand
-                <a href="/contact-me">my skillset! </a>
-              </p>
-              <p>
-                If you have a project idea that needs building or are looking for contributors for an existing project, feel free to contact me through any of the means listed on the left. A CV detailing my past experience is available on request.
-              </p>
-            </div>
-            <hr>
-          </div>
+      .github,
+      .mail{
+       --iron-icon-width: 49px;
+       --iron-icon-height: 49px;
+     }
+     a .mail,
+     a .github,
+     a .linked-in {
+      color: black;
+      font-size: 20px;
+      transition: 200ms;
+      transition-timing-function: ease-in-out;
+      -webkit-transition: 200ms;
+      -webkit-transition-timing-function: ease-in-out;
+    }
+  </style>
+  <div class="card">
+    <div class="about-me-container">
+      <!-- Profile Image -->
+      <div class="profile-image">
+        <img class="img-circle" src="../../images/profile2.jpg" width="180" height="180">
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Profile Bio -->
+      <div class="description">
+        <hr>
+        <div>
+          <p>
+            I'm a 4th year Computer Science student in Trinity College Dublin with a love of all things engineering and an interest in the area of distributed systems.
+          </p>
+          <p>
+            Through personal projects and college work I've picked up a variety of frameworks and languages but work mostly with Python and Rails. However, I'm always looking to expand
+            <a href="/contact-me">my skillset! </a>
+          </p>
+          <p>
+            If you have a project idea that needs building or are looking for contributors for an existing project, feel free to contact me through any of the means listed on the left. A CV detailing my past experience is available on request.
+          </p>
         </div>
+        <hr>
+      </div>
+      <!-- /Profile Bio -->
+    </div>
 
-        <!-- Social Media Icons -->
-        <div class="social-container">
-            <div class="top-padded">
-              <a href="https://github.com/Gradecak/" target="_blank" class="icons">
-                <iron-icon class="github" icon="gh:github"> </iron-icon>
-                <span class="github">Github</span>
-              </a>
-            </div>
+    <!-- Social Media Icons -->
+    <div class="social-container">
+      <div class="social-icons">
+        <a href="https://github.com/Gradecak/" target="_blank" class="icons">
+          <iron-icon class="github" icon="gh:github"> </iron-icon>
+          <span class="github">Github</span>
+        </a>
+      </div>
 
-            <div class="top-padded">
-              <a class="icons" href="https://ie.linkedin.com/in/marijan-gradecak-882b4bb2" target="_blank">
-                <iron-icon class="linked-in" " icon="li:linked-in"> </iron-icon>
-                <span class="linked-in">LinkedIn</span>
-              </a>
-            </div>
+      <div class="social-icons">
+        <a class="icons" href="https://ie.linkedin.com/in/marijan-gradecak-882b4bb2" target="_blank">
+          <iron-icon class="linked-in" " icon="li:linked-in"> </iron-icon>
+          <span class="linked-in">LinkedIn</span>
+        </a>
+      </div>
 
-            <div class="top-padded">
-              <a class="icons" href="mailto:gradecam@tcd.ie" target="_blank">
-                <iron-icon class="mail" icon="icons:mail"> </iron-icon>
-                <span class="mail">gradecam@tcd.ie</span>
-              </a>
-            </div>
-          </div>
+      <div class="social-icons">
+        <a class="icons" href="mailto:gradecam@tcd.ie" target="_blank">
+          <iron-icon class="mail" icon="icons:mail"> </iron-icon>
+          <span class="mail">gradecam@tcd.ie</span>
+        </a>
       </div>
     </div>
-  </template>
+    <!-- /Social media Icons -->
+  </div>
+</template>
 
-  <script>
-    Polymer({
-      is: 'about-me',
-      behaviors: [
-      Polymer.NeonAnimationRunnerBehavior
-      ],
-      properties: {
-        animationConfig: {
-          value: function() {
-            return {
-          // provided by neon-animation/animations/scale-down-animation.html
-          name: 'scale-down-animation',
-          node: this
-        }
-      }
-    }
-  },
-  listeners: {
-    // this event is fired when the animation finishes
-    'neon-animation-finish': '_onNeonAnimationFinish'
-  },
-  animate: function() {
-    // run scale-down-animation
-    this.playAnimation();
-  },
-  _onNeonAnimationFinish: function() {
-    console.log('animation done!');
-  }
-});
+<script>
+  Polymer({
+    is: 'about-me'
+  });
 </script>
 </dom-module>
